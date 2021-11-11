@@ -110,13 +110,17 @@ nav ul{
 	display: flex;
 }
 main{ 
-	width:75%;
+	/* width:75%; */
+	flex-basis: 0;
+	flex-grow: 3;
 }
 aside{
-	width:25%;
+	/* width:25%; */
+	flex-basis: 0;
+	flex-grow: 1;
 	/* display flex is not inherited - so, if you want the aside to also use flexbox, you have to set it  */
 	display:flex;
-	flex-direction: column;
+	flex-direction: column-reverse;
 }
 aside .sidebarbox{
 	/* by default - flex basis it set to "auto", which means shrink to the size of the content if we give it a number, 
@@ -125,6 +129,16 @@ aside .sidebarbox{
 	/* then you have to use flex grow or flex shrink to tell the boxes how you want themto grow or shrink
 	relative to the space they have and to each other */
 	flex-grow: 1;
+	display: flex;
+/* justify content looks at the main axis (by default horizontal, or row) */
+	justify-content: center;
+	/* align-items looks at the cross axis (by default, vertical, or column) */
+	align-items: center;
+}
+aside .sidebarbox:nth-child(2){
+	/* order in this case sends it to the end of the primary axis, which is comlumn-reverse, or bottom to top - so the 
+	end of the axis means it sends it to the top (and a negative number would send it to the bottom)*/
+	order: 1;
 }
 #fish{
 display: flex;
@@ -150,6 +164,8 @@ display: flex;
 }
 #rainbow #gr{
 	flex-grow: 4;
+	/* a postive number will move it toward the end of the main axis (in this case, with horizontal, towards the right */
+	order: 1;
 }
 #content{
 	/* divs with content will try to take up as much space as they need, relative to the content of the other boxes */
@@ -157,7 +173,7 @@ display: flex;
 }
 /* flex is a shorthanf property that combines flex-grow, flex-shrink, and flex-basis (in that order) */
 #content p:nth-child(1){flex:1 1 0}
-#content p:nth-child(2){flex:4 1 0}
+#content p:nth-child(2){flex:1 1 0}
 #content p:nth-child(3){flex:1 1 0}
-#content p:nth-child(4){flex:3 1 0}
+#content p:nth-child(4){flex:1 1 0}
 #content p:nth-child(5){flex:1 1 0}
