@@ -98,3 +98,66 @@ nav ul li{
 				        Flexbox
 ***********************************************************/
 
+nav ul{
+	background-color: coral;
+	/* set the container to display:flex */
+	display: flex;
+	/* justify content tells the browser how you want the items inside the flexbox to behave on the main axis  */
+	justify-content: space-evenly;
+}
+/* the div with the class bodyflex contains both the main and the aside */
+.bodyflex{
+	display: flex;
+}
+main{ 
+	width:75%;
+}
+aside{
+	width:25%;
+	/* display flex is not inherited - so, if you want the aside to also use flexbox, you have to set it  */
+	display:flex;
+	flex-direction: column;
+}
+aside .sidebarbox{
+	/* by default - flex basis it set to "auto", which means shrink to the size of the content if we give it a number, 
+	we assign a level of importance to the item - if they have the same number, they all have the same size importance */
+	flex: basis 0;
+	/* then you have to use flex grow or flex shrink to tell the boxes how you want themto grow or shrink
+	relative to the space they have and to each other */
+	flex-grow: 1;
+}
+#fish{
+display: flex;
+}
+/* use flex wrap to allow the flex to wrap to the next line (or as many lines as necessary */
+/* flex-wrap:wrap; */
+#fish img{
+	width:100%;
+}
+
+#rainbow{
+	/* without any other instructions, elements with no content disappear when they are first set to display flex  */
+	display: flex;
+}
+
+#rainbow div{
+	flex-basis: 0;
+	flex-grow: 1;
+}
+#rainbow #re, #rainbow #bl{
+	/* this will set these two divsto be twice the size of the other five, relative to the amount of space they have */
+	flex-grow: 2;
+}
+#rainbow #gr{
+	flex-grow: 4;
+}
+#content{
+	/* divs with content will try to take up as much space as they need, relative to the content of the other boxes */
+	display:flex
+}
+/* flex is a shorthanf property that combines flex-grow, flex-shrink, and flex-basis (in that order) */
+#content p:nth-child(1){flex:1 1 0}
+#content p:nth-child(2){flex:4 1 0}
+#content p:nth-child(3){flex:1 1 0}
+#content p:nth-child(4){flex:3 1 0}
+#content p:nth-child(5){flex:1 1 0}
